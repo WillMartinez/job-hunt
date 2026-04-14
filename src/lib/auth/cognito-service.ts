@@ -44,6 +44,16 @@ export const authService = {
     });
   },
 
+  confirmSignUp: (email: string, code: string): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      const cognitoUser = new CognitoUser({ Username: email, Pool: userPool });
+      cognitoUser.confirmRegistration(code, true, (err, result) => {
+        if (err) { reject(err); return; }
+        resolve(result || "SUCCESS");
+      });
+    });
+  },
+
   signOut: (): void => {
     const cognitoUser = userPool.getCurrentUser();
     if (cognitoUser) cognitoUser.signOut();

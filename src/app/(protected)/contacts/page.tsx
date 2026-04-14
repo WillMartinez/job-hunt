@@ -149,7 +149,7 @@ export default function ContactsPage() {
                   <li key={company} className="flex items-center justify-between text-sm">
                     <span className="text-gray-700 truncate">{company}</span>
                     <span className="ml-2 text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full font-medium shrink-0">
-                      {count}
+                      {count.length}
                     </span>
                   </li>
                 ))}

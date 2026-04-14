@@ -10,8 +10,8 @@ export class AuthStack extends cdk.Stack {
     super(scope, id, props);
 
     // Create Cognito User Pool
-    this.userPool = new cognito.UserPool(this, "MtgDeckBuilderUserPool", {
-      userPoolName: "mtg-deck-builder-users",
+    this.userPool = new cognito.UserPool(this, "JobHuntUserPool", {
+      userPoolName: "job-hunt-users",
       selfSignUpEnabled: true,
       signInAliases: {
         email: true,
@@ -37,8 +37,8 @@ export class AuthStack extends cdk.Stack {
     });
 
     // Create User Pool Client
-    this.userPoolClient = this.userPool.addClient("MtgDeckBuilderWebClient", {
-      userPoolClientName: "mtg-deck-builder-web-client",
+    this.userPoolClient = this.userPool.addClient("JobHuntWebClient", {
+      userPoolClientName: "job-hunt-web-client",
       authFlows: {
         userPassword: true,
         userSrp: true,
@@ -51,19 +51,19 @@ export class AuthStack extends cdk.Stack {
     new cdk.CfnOutput(this, "UserPoolId", {
       value: this.userPool.userPoolId,
       description: "Cognito User Pool ID",
-      exportName: "MtgDeckBuilderUserPoolId",
+      exportName: "JobHuntUserPoolId",
     });
 
     new cdk.CfnOutput(this, "UserPoolClientId", {
       value: this.userPoolClient.userPoolClientId,
       description: "Cognito User Pool Client ID",
-      exportName: "MtgDeckBuilderUserPoolClientId",
+      exportName: "JobHuntUserPoolClientId",
     });
 
     new cdk.CfnOutput(this, "Region", {
       value: this.region,
       description: "AWS Region",
-      exportName: "MtgDeckBuilderRegion",
+      exportName: "JobHuntRegion",
     });
   }
 }

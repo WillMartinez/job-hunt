@@ -20,11 +20,6 @@
       "typescript": "~5.9.3"
     },
     "dependencies": {
-      "@aws-cdk/aws-apigatewayv2": "^1.203.0",
-      "@aws-cdk/aws-apigatewayv2-integrations": "^1.203.0",
-      "@aws-cdk/aws-cognito": "^1.203.0",
-      "@aws-cdk/aws-dynamodb": "^1.203.0",
-      "@aws-cdk/aws-lambda-nodejs": "^1.203.0",
       "aws-cdk-lib": "^2.232.2",
       "constructs": "^10.0.0"
     }
